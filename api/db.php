@@ -2,13 +2,25 @@
     $dsn="mysql:host=localhost;charset=utf8;dbname=mypolling";
     $pdo=new PDO($dsn,'root','');
 
-  
+    //取得符合條件的一筆資料
     function find($table,$id){
         global $pdo;
-        $sql="SELECT * FROM `$table` WHERE `id`='$id'";
-    
+        $sql="SELECT * FROM `$table` WHERE ";
+
+        if(is_array($id)){
+            foreach($id as $key=>$value){
+                $tmp[]="`$key`='$value'";
+            }
+            
+            $sql=$sql. implode(" AND ",$tmp);
+        }else{
+           $sql=$sql . "`id`='$id'";
+        }
+
         return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
+
+
 
     //取出指定資料表的所有資料
 function all($table,...$arg){
@@ -30,7 +42,7 @@ function all($table,...$arg){
         $sql=$sql.$arg[1];
     }
     
-    echo $sql;
+    //echo $sql;
     
     $rows=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
@@ -55,9 +67,6 @@ function all($table,...$arg){
 
     mb_substr($sql_where,0,mb_strlen($sql_where)-5);
     $sql="UPDATE `$table` SET $sql_set WHERE $sql_where ";
-    "UPDATE `expenditure` 
-        SET `date`='2021-11-22',`place`='泰山訓練場' 
-         WHERE `payment_method`='信用卡' AND `classification`='教育'";
     //echo $sql;
     $pdo->exec($sql);
 
@@ -80,8 +89,16 @@ function all($table,...$arg){
 
  function del($table,$id){
     global $pdo;
-    $sql="DELETE FROM `$table` WHERE `id`='$id'";
-
+    $sql="DELETE FROM `$table` WHERE ";
+    if(is_array($id)){
+        foreach($id as $key=>$value){
+            $tmp[]="`$key`='$value'";
+        }
+        
+        $sql=$sql. implode(" AND ",$tmp);
+    }else{
+       $sql=$sql . "`id`='$id'";
+    }
     return $pdo->exec($sql);
  }
 
