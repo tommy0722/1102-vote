@@ -3,7 +3,7 @@ include_once "db.php";
 
 /**
  * 資料表的欄位名稱=>資料內容
- * 
+ * 這個檔案用來加把資料寫入資料表
  */
 
 $topic_array=['topic'=>$_POST['subject']];
