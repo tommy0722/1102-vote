@@ -1,6 +1,6 @@
 <?php include_once "../api/db.php";
 
-if(!isset($_SESSION['user'])){
+if(!isset($_SESSION['superuser'])){
   to("../index.php");
   exit();
 }

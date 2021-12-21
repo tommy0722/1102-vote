@@ -67,6 +67,16 @@ if(isset($_SESSION['user'])){
 
 <?php
 
+}elseif(isset($_SESSION['superuser'])){
+  echo "<span class='pr-5'>歡迎！管理者！</span>";
+?>
+<div>
+  <a class="btn btn-sm btn-primary mx-1" href="./backend/index.php">後台管理系統</a>
+  <a class="btn btn-sm btn-primary mx-1" href="logout.php">登出</a>
+</div>
+
+<?php
+
 }else{
 ?>
 <div>
