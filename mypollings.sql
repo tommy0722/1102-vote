@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- 主機： 127.0.0.1
--- 產生時間： 2021-12-03 09:38:01
--- 伺服器版本： 10.4.21-MariaDB
--- PHP 版本： 7.4.23
+-- 主機： localhost
+-- 產生時間： 2021 年 12 月 22 日 03:21
+-- 伺服器版本： 10.4.22-MariaDB
+-- PHP 版本： 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫: `mypolling`
+-- 資料庫: `mypollings`
 --
 
 -- --------------------------------------------------------
@@ -81,6 +81,29 @@ INSERT INTO `options` (`id`, `opt`, `count`, `topic_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `superuser`
+--
+
+CREATE TABLE `superuser` (
+  `id` tinyint(3) NOT NULL,
+  `account` tinytext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `password` tinytext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `email` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `name` tinytext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `gender` tinytext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `birthday` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- 傾印資料表的資料 `superuser`
+--
+
+INSERT INTO `superuser` (`id`, `account`, `password`, `email`, `name`, `gender`, `birthday`) VALUES
+(1, 'admin', '77777777', '7777777', 'superuser', '特圖', '2011-01-01');
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `topics`
 --
 
@@ -121,7 +144,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `account`, `password`, `email`, `name`, `gender`, `birthday`) VALUES
-(1, 'mack', '1234', 'macklun@ms7.hinet.net', '劉勤永', '男', '1974-10-07');
+(1, 'shin', '1234', 'tommy@gmail.com', '何誠信', '男', '1993-07-22');
 
 --
 -- 已傾印資料表的索引
@@ -137,6 +160,12 @@ ALTER TABLE `ad`
 -- 資料表索引 `options`
 --
 ALTER TABLE `options`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `superuser`
+--
+ALTER TABLE `superuser`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -166,6 +195,12 @@ ALTER TABLE `ad`
 --
 ALTER TABLE `options`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `superuser`
+--
+ALTER TABLE `superuser`
+  MODIFY `id` tinyint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `topics`
