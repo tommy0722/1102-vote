@@ -11,11 +11,15 @@ $options=all('options',['topic_id'=>$_GET['id']]);
     <!--增加選項-->
     <a href="../api/add_option.php?id=<?=$subject['id'];?>">
         <input class='bg-info border-info text-light rounded' type="button" value="+">
-    </a>
+    </a><br>
+    開始時間：<input type='date' name='startime'><br>
+    結束時間：<input type='date' name='endtime'>
     
     <?php 
+
     foreach($options as $key => $opt){
         echo "<label class='list-group-item'>\n";
+
         echo   "選項" . ($key+1) ."\n";
         echo   "<input type='text' name='options[]' value='{$opt['opt']}'>\n";
         echo   "<input type='hidden' name='opt_id[]' value='{$opt['id']}'>\n";

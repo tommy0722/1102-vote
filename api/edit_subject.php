@@ -5,6 +5,8 @@ include_once "db.php";
  * 資料表的欄位名稱=>資料內容
  */
 
+// if$endtime<$today;
+
  //依據表單傳過來的topic欄位取得問卷主題資料
 $topic=$_POST['topic'];
 

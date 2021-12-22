@@ -60,8 +60,8 @@ if(!isset($_SESSION['superuser'])){
 </div>
 <?php 
 
-if(isset($_SESSION['user'])){
-  echo "<span class='pr-5'>歡迎！{$_SESSION['user']}</span>";
+if(isset($_SESSION['superuser'])){
+  echo "<span class='pr-5'>歡迎！管理者</span>";
 ?>
 <div>
   <a class="btn btn-sm btn-primary mx-1" href="../logout.php">登出</a>
@@ -85,7 +85,7 @@ if(file_exists($file)){
 }
 ?>
 </div> 
-<div class="p-3 text-center text-light bg-primary ">mack版權所有、歡迎盜用</div>
+<div class="p-3 text-center text-light bg-primary ">頁尾</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
