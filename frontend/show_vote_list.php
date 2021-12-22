@@ -7,7 +7,7 @@ foreach ($subjects as $key => $value) {
     echo "<li class='list-group-item'>";
     //題目
     //有登入的會員才能使用投票功能
-    if(isset($_SESSION['user'])){
+    if(isset($_SESSION['user']) or isset($_SESSION['user'])){
         echo "<a class='d-inline-block col-md-8' href='index.php?do=vote&id={$value['id']}'>";
         echo $value['topic'];
         echo "</a>";
