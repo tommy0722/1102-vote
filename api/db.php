@@ -1,8 +1,13 @@
 <?php
-// 連結sql的字串指令
-$dsn = "mysql:host=localhost;charset=utf8;dbname=mypollings";
-// 新建資料庫(連結路徑語言資料庫名稱,帳號,密碼)
-$pdo = new PDO($dsn, 'root', '');
+// // 連結sql的字串指令
+// $dsn = "mysql:host=localhost;charset=utf8;dbname=s1100414";
+// // 新建資料庫(連結路徑語言資料庫名稱,帳號,密碼)
+// $pdo = new PDO($dsn, 's1100414', 's1100414');
+
+// // 連結sql的字串指令
+$dsn = "mysql:host=localhost;charset=utf8;dbname=s1100414";
+// // 新建資料庫(連結路徑語言資料庫名稱,帳號,密碼)
+// $pdo = new PDO($dsn, 's1100414', 's1100414');
 session_start();
 
 //取得符合條件的一筆資料
