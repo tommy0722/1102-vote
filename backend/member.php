@@ -9,21 +9,26 @@
     <style>
         table tr td {
             border: black solid 1px;
-            width: 10%;
+            
         }
 
-        tr {
-            width: 20%;
+        td>input{
+            width:100%;
         }
+        /* tr {
+            width: 10%;
+        } */
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js" integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body>
+<body class="">
 
-    <table class='table m-auto w-auto'>
+    <table class='table text-center '>
         <form method="post" action="../api/del_member.php">
-            <tr>
-                <td>編號</td>
+        <thead class="thead-light">
+            <tr class="">
+                <td style="width: 70px;">編號</td>
                 <td>帳號</td>
                 <td>密碼</td>
                 <td>信箱</td>
@@ -32,6 +37,8 @@
                 <td>生日</td>
                 <td></td>
             </tr>
+            </thead>
+            <tbody>
             <?php
             $users = all('users');
             foreach ($users as $keys => $value) {
@@ -44,9 +51,10 @@
                     <td><?= $value['name']; ?></td>
                     <td><?= $value['gender']; ?></td>
                     <td><?= $value['birthday']; ?></td>
-                    <td><a class='btn btn-danger' href="../api/del_member.php?id=<?= $value['id']; ?>">刪除</a></td>
+                    <td><a class='btn btn-danger ' href="../api/del_member.php?id=<?= $value['id']; ?>">刪除</a></td>
                     
                 </tr>
+            </tbody>
             <?php
             }
             ?>
@@ -56,18 +64,19 @@
 
             <tr>
                 <td></td>
-                <td><input type="text" name="account"></td>
+                <td><input type="text" name="account" ></td>
                 <td><input type="password" name="password"></td>
                 <td><input type="text" name="email"></td>
                 <td><input type="text" name="name"></td>
-                <td><input type="date" name="birthday"></td>
                 <td><input type="text" name="gender"></td>
+                <td><input type="date" name="birthday"></td>
                 <td class='text-center'><input type="submit" value="確認送出"> </td>
             </tr>
     </table>
     
     </form>
     </table>
+    
 </body>
 
 </html>

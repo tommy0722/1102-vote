@@ -13,7 +13,7 @@
     <tr>
         <td colspan="2">
             <input type="submit" value="登入">
-            <input type="reset" value="重罝">
+            <input class="text-right"  type="reset" value="重罝">
         </td>
 
     </tr>
